@@ -57,7 +57,10 @@ public class Main extends Application {
         TableColumn<Device, String> newColumn = new TableColumn<>("New");
         newColumn.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().isNew() ? "Yes" : "No"));
 
-        table.getColumns().addAll(ipColumn, hostColumn, portsColumn, newColumn);
+        table.getColumns().add(ipColumn);
+        table.getColumns().add(hostColumn);
+        table.getColumns().add(portsColumn);
+        table.getColumns().add(newColumn);
         table.setItems(graph.getDevices());
         root.setCenter(table);
 
